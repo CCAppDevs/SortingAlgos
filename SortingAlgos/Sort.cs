@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace SortingAlgos
 {
-    public static class Sort
+    public static class Sort<T> where T : IComparable
     {
-        public static int[] BubbleSort(int[] arr, int n)
+        public static T[] BubbleSort(T[] arr, int n)
         {
-            int i, j, temp;
+            int i, j;
+            T temp;
             bool swapped;
             for (i = 0; i < n - 1; i++) // 1mil iterations
             {
                 swapped = false;
                 for (j = 0; j < n - i - 1; j++) // 1 million times per i
                 {
-                    if (arr[j] > arr[j + 1])
+                    if (arr[j].CompareTo(arr[j + 1]) > 0)
                     {
 
                         // Swap arr[j] and arr[j+1]
